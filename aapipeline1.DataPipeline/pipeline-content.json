@@ -1,0 +1,616 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Copy data1",
+        "type": "Copy",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "DataWarehouseSource",
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "annotations": [],
+              "connectionSettings": {
+                "name": "ContosoDW",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "txevxqqrsppuve3evkv42zse3a-sbl5q7iefzae5efh6ihvazao3a.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "3e49e05b-1a1c-4a0f-b8a0-fd455e29033e",
+                    "workspaceId": "7dd85790-2e04-4e40-90a7-f20f50640ed8"
+                  },
+                  "externalReferences": {
+                    "connection": "44da0cc1-5c4a-464b-abd7-8e6463501a8b"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "Date"
+              }
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "tableOption": "autoCreate",
+            "datasetSettings": {
+              "annotations": [],
+              "connectionSettings": {
+                "name": "ContosoDW",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "txevxqqrsppuve3evkv42zse3a-sbl5q7iefzae5efh6ihvazao3a.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "3e49e05b-1a1c-4a0f-b8a0-fd455e29033e",
+                    "workspaceId": "7dd85790-2e04-4e40-90a7-f20f50640ed8"
+                  },
+                  "externalReferences": {
+                    "connection": "44da0cc1-5c4a-464b-abd7-8e6463501a8b"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "dbo",
+                "table": "a0002"
+              }
+            }
+          },
+          "enableStaging": true,
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "DateID",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "DateID",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "Date",
+                  "type": "DateTime",
+                  "physicalType": "datetime2",
+                  "precision": 6
+                },
+                "sink": {
+                  "name": "Date",
+                  "physicalType": "datetime2",
+                  "precision": 6
+                }
+              },
+              {
+                "source": {
+                  "name": "DateBKey",
+                  "type": "String",
+                  "physicalType": "char",
+                  "length": "10"
+                },
+                "sink": {
+                  "name": "DateBKey",
+                  "physicalType": "char",
+                  "length": "10"
+                }
+              },
+              {
+                "source": {
+                  "name": "DayOfMonth",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "2"
+                },
+                "sink": {
+                  "name": "DayOfMonth",
+                  "physicalType": "varchar",
+                  "length": "2"
+                }
+              },
+              {
+                "source": {
+                  "name": "DaySuffix",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "4"
+                },
+                "sink": {
+                  "name": "DaySuffix",
+                  "physicalType": "varchar",
+                  "length": "4"
+                }
+              },
+              {
+                "source": {
+                  "name": "DayName",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "9"
+                },
+                "sink": {
+                  "name": "DayName",
+                  "physicalType": "varchar",
+                  "length": "9"
+                }
+              },
+              {
+                "source": {
+                  "name": "DayOfWeek",
+                  "type": "String",
+                  "physicalType": "char",
+                  "length": "1"
+                },
+                "sink": {
+                  "name": "DayOfWeek",
+                  "physicalType": "char",
+                  "length": "1"
+                }
+              },
+              {
+                "source": {
+                  "name": "DayOfWeekInMonth",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "2"
+                },
+                "sink": {
+                  "name": "DayOfWeekInMonth",
+                  "physicalType": "varchar",
+                  "length": "2"
+                }
+              },
+              {
+                "source": {
+                  "name": "DayOfWeekInYear",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "2"
+                },
+                "sink": {
+                  "name": "DayOfWeekInYear",
+                  "physicalType": "varchar",
+                  "length": "2"
+                }
+              },
+              {
+                "source": {
+                  "name": "DayOfQuarter",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "3"
+                },
+                "sink": {
+                  "name": "DayOfQuarter",
+                  "physicalType": "varchar",
+                  "length": "3"
+                }
+              },
+              {
+                "source": {
+                  "name": "DayOfYear",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "3"
+                },
+                "sink": {
+                  "name": "DayOfYear",
+                  "physicalType": "varchar",
+                  "length": "3"
+                }
+              },
+              {
+                "source": {
+                  "name": "WeekOfMonth",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "1"
+                },
+                "sink": {
+                  "name": "WeekOfMonth",
+                  "physicalType": "varchar",
+                  "length": "1"
+                }
+              },
+              {
+                "source": {
+                  "name": "WeekOfQuarter",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "2"
+                },
+                "sink": {
+                  "name": "WeekOfQuarter",
+                  "physicalType": "varchar",
+                  "length": "2"
+                }
+              },
+              {
+                "source": {
+                  "name": "WeekOfYear",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "2"
+                },
+                "sink": {
+                  "name": "WeekOfYear",
+                  "physicalType": "varchar",
+                  "length": "2"
+                }
+              },
+              {
+                "source": {
+                  "name": "Month",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "2"
+                },
+                "sink": {
+                  "name": "Month",
+                  "physicalType": "varchar",
+                  "length": "2"
+                }
+              },
+              {
+                "source": {
+                  "name": "MonthName",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "9"
+                },
+                "sink": {
+                  "name": "MonthName",
+                  "physicalType": "varchar",
+                  "length": "9"
+                }
+              },
+              {
+                "source": {
+                  "name": "MonthOfQuarter",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "2"
+                },
+                "sink": {
+                  "name": "MonthOfQuarter",
+                  "physicalType": "varchar",
+                  "length": "2"
+                }
+              },
+              {
+                "source": {
+                  "name": "Quarter",
+                  "type": "String",
+                  "physicalType": "char",
+                  "length": "1"
+                },
+                "sink": {
+                  "name": "Quarter",
+                  "physicalType": "char",
+                  "length": "1"
+                }
+              },
+              {
+                "source": {
+                  "name": "QuarterName",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "9"
+                },
+                "sink": {
+                  "name": "QuarterName",
+                  "physicalType": "varchar",
+                  "length": "9"
+                }
+              },
+              {
+                "source": {
+                  "name": "Year",
+                  "type": "String",
+                  "physicalType": "char",
+                  "length": "4"
+                },
+                "sink": {
+                  "name": "Year",
+                  "physicalType": "char",
+                  "length": "4"
+                }
+              },
+              {
+                "source": {
+                  "name": "YearName",
+                  "type": "String",
+                  "physicalType": "char",
+                  "length": "7"
+                },
+                "sink": {
+                  "name": "YearName",
+                  "physicalType": "char",
+                  "length": "7"
+                }
+              },
+              {
+                "source": {
+                  "name": "MonthYear",
+                  "type": "String",
+                  "physicalType": "char",
+                  "length": "10"
+                },
+                "sink": {
+                  "name": "MonthYear",
+                  "physicalType": "char",
+                  "length": "10"
+                }
+              },
+              {
+                "source": {
+                  "name": "MMYYYY",
+                  "type": "String",
+                  "physicalType": "char",
+                  "length": "6"
+                },
+                "sink": {
+                  "name": "MMYYYY",
+                  "physicalType": "char",
+                  "length": "6"
+                }
+              },
+              {
+                "source": {
+                  "name": "FirstDayOfMonth",
+                  "type": "Date",
+                  "physicalType": "date"
+                },
+                "sink": {
+                  "name": "FirstDayOfMonth",
+                  "physicalType": "date"
+                }
+              },
+              {
+                "source": {
+                  "name": "LastDayOfMonth",
+                  "type": "Date",
+                  "physicalType": "date"
+                },
+                "sink": {
+                  "name": "LastDayOfMonth",
+                  "physicalType": "date"
+                }
+              },
+              {
+                "source": {
+                  "name": "FirstDayOfQuarter",
+                  "type": "Date",
+                  "physicalType": "date"
+                },
+                "sink": {
+                  "name": "FirstDayOfQuarter",
+                  "physicalType": "date"
+                }
+              },
+              {
+                "source": {
+                  "name": "LastDayOfQuarter",
+                  "type": "Date",
+                  "physicalType": "date"
+                },
+                "sink": {
+                  "name": "LastDayOfQuarter",
+                  "physicalType": "date"
+                }
+              },
+              {
+                "source": {
+                  "name": "FirstDayOfYear",
+                  "type": "Date",
+                  "physicalType": "date"
+                },
+                "sink": {
+                  "name": "FirstDayOfYear",
+                  "physicalType": "date"
+                }
+              },
+              {
+                "source": {
+                  "name": "LastDayOfYear",
+                  "type": "Date",
+                  "physicalType": "date"
+                },
+                "sink": {
+                  "name": "LastDayOfYear",
+                  "physicalType": "date"
+                }
+              },
+              {
+                "source": {
+                  "name": "IsHolidayUSA",
+                  "type": "Boolean",
+                  "physicalType": "bit"
+                },
+                "sink": {
+                  "name": "IsHolidayUSA",
+                  "physicalType": "bit"
+                }
+              },
+              {
+                "source": {
+                  "name": "IsWeekday",
+                  "type": "Boolean",
+                  "physicalType": "bit"
+                },
+                "sink": {
+                  "name": "IsWeekday",
+                  "physicalType": "bit"
+                }
+              },
+              {
+                "source": {
+                  "name": "HolidayUSA",
+                  "type": "String",
+                  "physicalType": "varchar",
+                  "length": "50"
+                },
+                "sink": {
+                  "name": "HolidayUSA",
+                  "physicalType": "varchar",
+                  "length": "50"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      },
+      {
+        "name": "Copy data2",
+        "type": "Copy",
+        "dependsOn": [
+          {
+            "activity": "Copy data1",
+            "dependencyConditions": [
+              "Completed"
+            ]
+          }
+        ],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "source": {
+            "type": "SqlServerSource",
+            "sqlReaderQuery": "SELECT TOP 200 * FROM [Person].[AddressType]",
+            "queryTimeout": "02:00:00",
+            "partitionOption": "None",
+            "datasetSettings": {
+              "annotations": [],
+              "type": "SqlServerTable",
+              "schema": [],
+              "typeProperties": {
+                "database": "AdventureWorks2025"
+              },
+              "externalReferences": {
+                "connection": "74902fac-99d3-4a8f-953d-6841ea2093e4"
+              }
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "tableOption": "autoCreate",
+            "datasetSettings": {
+              "annotations": [],
+              "connectionSettings": {
+                "name": "ContosoDW",
+                "properties": {
+                  "annotations": [],
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "endpoint": "txevxqqrsppuve3evkv42zse3a-sbl5q7iefzae5efh6ihvazao3a.datawarehouse.fabric.microsoft.com",
+                    "artifactId": "3e49e05b-1a1c-4a0f-b8a0-fd455e29033e",
+                    "workspaceId": "7dd85790-2e04-4e40-90a7-f20f50640ed8"
+                  },
+                  "externalReferences": {
+                    "connection": "44da0cc1-5c4a-464b-abd7-8e6463501a8b"
+                  }
+                }
+              },
+              "type": "DataWarehouseTable",
+              "schema": [],
+              "typeProperties": {
+                "schema": "Person",
+                "table": "AddressType"
+              }
+            }
+          },
+          "enableStaging": true,
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "AddressTypeID",
+                  "type": "Int32",
+                  "physicalType": "int"
+                },
+                "sink": {
+                  "name": "AddressTypeID",
+                  "physicalType": "int"
+                }
+              },
+              {
+                "source": {
+                  "name": "Name",
+                  "type": "String",
+                  "physicalType": "nvarchar",
+                  "length": "50"
+                },
+                "sink": {
+                  "name": "Name",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                }
+              },
+              {
+                "source": {
+                  "name": "rowguid",
+                  "type": "Guid",
+                  "physicalType": "uniqueidentifier"
+                },
+                "sink": {
+                  "name": "rowguid",
+                  "physicalType": "uniqueidentifier"
+                }
+              },
+              {
+                "source": {
+                  "name": "ModifiedDate",
+                  "type": "DateTime",
+                  "physicalType": "datetime"
+                },
+                "sink": {
+                  "name": "ModifiedDate",
+                  "physicalType": "datetime2",
+                  "precision": 6
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          }
+        }
+      }
+    ]
+  }
+}

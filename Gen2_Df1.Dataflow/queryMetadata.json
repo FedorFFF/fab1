@@ -1,0 +1,37 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {},
+  "name": "Gen2_Df1",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "DefaultDestination": {
+      "queryId": "09baea1a-e4b2-42fc-9975-568579525700",
+      "queryName": "DefaultDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "customer_200": {
+      "queryId": "0c1442ff-c7bc-4e25-bdb2-3a78c3a370b3",
+      "queryName": "customer_200",
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"07530d95-d06a-4d46-8362-58fcdf85a8de\",\"DatasourceId\":\"83a2d25e-2144-4ee3-be55-e75b84aa5623\"}"
+    },
+    {
+      "path": "localhost;AdventureWorks2025",
+      "kind": "SQL",
+      "connectionId": "{\"ClusterId\":\"07530d95-d06a-4d46-8362-58fcdf85a8de\",\"DatasourceId\":\"acec5700-835b-421d-8383-a128a30618e7\"}"
+    },
+    {
+      "path": "https://leverxcorp-my.sharepoint.com/personal/fiodar_hulin_leverx_com/",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"07530d95-d06a-4d46-8362-58fcdf85a8de\",\"DatasourceId\":\"50259262-3e43-44b9-a787-bd15a85c2443\"}"
+    }
+  ]
+}

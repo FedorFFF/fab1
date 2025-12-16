@@ -1,0 +1,37 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {},
+  "name": "DF001",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "orders": {
+      "queryId": "0d162c4b-292f-41a2-9a46-580ca7ec5c4b",
+      "queryName": "orders",
+      "loadEnabled": false
+    },
+    "orders_DataDestination": {
+      "queryId": "58eee162-20e0-4189-839e-19947ba5ff35",
+      "queryName": "orders_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"07530d95-d06a-4d46-8362-58fcdf85a8de\",\"DatasourceId\":\"83a2d25e-2144-4ee3-be55-e75b84aa5623\"}"
+    },
+    {
+      "path": "https://raw.githubusercontent.com/MicrosoftLearning/dp-data/main/orders.csv",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"07530d95-d06a-4d46-8362-58fcdf85a8de\",\"DatasourceId\":\"cc7af9dc-e4c6-41fe-9182-909695441bff\"}"
+    },
+    {
+      "path": "https://leverxcorp-my.sharepoint.com/personal/fiodar_hulin_leverx_com/",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"07530d95-d06a-4d46-8362-58fcdf85a8de\",\"DatasourceId\":\"c72a2c11-5e9f-4394-9ac8-52694e5c05af\"}"
+    }
+  ]
+}
