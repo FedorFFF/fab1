@@ -1,0 +1,1111 @@
+{
+  "name": "{{Dataset_Name}}",
+  "compatibilityLevel": 1604,
+  "model": {
+    "name": "{{Dataset_Name}}",
+    "culture": "en-US",
+    "collation": "Latin1_General_100_BIN2_UTF8",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "batches",
+        "sourceLineageTag": "[etl].[batches]",
+        "columns": [
+          {
+            "name": "sf_batch_id",
+            "dataType": "int64",
+            "sourceColumn": "sf_batch_id",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "sf_batch_id",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "process_name",
+            "dataType": "string",
+            "sourceColumn": "process_name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "process_name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "stage_name",
+            "dataType": "string",
+            "sourceColumn": "stage_name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "stage_name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "batch_status",
+            "dataType": "int64",
+            "sourceColumn": "batch_status",
+            "formatString": "0",
+            "sourceProviderType": "smallint",
+            "sourceLineageTag": "batch_status",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "is_success",
+            "dataType": "boolean",
+            "sourceColumn": "is_success",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
+            "sourceProviderType": "bit",
+            "sourceLineageTag": "is_success",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "dtm_start",
+            "dataType": "dateTime",
+            "sourceColumn": "dtm_start",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime2",
+            "sourceLineageTag": "dtm_start",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "dtm_end",
+            "dataType": "dateTime",
+            "sourceColumn": "dtm_end",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime2",
+            "sourceLineageTag": "dtm_end",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "sf_user_id",
+            "dataType": "string",
+            "sourceColumn": "sf_user_id",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "sf_user_id",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "pipeline_run_id",
+            "dataType": "string",
+            "sourceColumn": "pipeline_run_id",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "pipeline_run_id",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "src_file_name",
+            "dataType": "string",
+            "sourceColumn": "src_file_name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "src_file_name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "cnt_ins_rows",
+            "dataType": "int64",
+            "sourceColumn": "cnt_ins_rows",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "cnt_ins_rows",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "cnt_upd_rows",
+            "dataType": "int64",
+            "sourceColumn": "cnt_upd_rows",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "cnt_upd_rows",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "cnt_del_rows",
+            "dataType": "int64",
+            "sourceColumn": "cnt_del_rows",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "cnt_del_rows",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "batches",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "etl"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "dummy",
+        "sourceLineageTag": "[etl].[dummy]",
+        "columns": [
+          {
+            "name": "process_name",
+            "dataType": "string",
+            "sourceColumn": "process_name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "process_name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "dummy",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "etl"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "file_mapping",
+        "sourceLineageTag": "[etl].[file_mapping]",
+        "columns": [
+          {
+            "name": "src_file_folder",
+            "dataType": "string",
+            "sourceColumn": "src_file_folder",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "src_file_folder",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "src_file_mask",
+            "dataType": "string",
+            "sourceColumn": "src_file_mask",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "src_file_mask",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "trg_scheme",
+            "dataType": "string",
+            "sourceColumn": "trg_scheme",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "trg_scheme",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "trg_table",
+            "dataType": "string",
+            "sourceColumn": "trg_table",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "trg_table",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "file_mapping",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "etl"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "mdfr00",
+        "sourceLineageTag": "[lnd].[mdfr00]",
+        "columns": [
+          {
+            "name": "record_type_1",
+            "dataType": "string",
+            "sourceColumn": "record_type_1",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "record_type_1",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "docket_num_2",
+            "dataType": "string",
+            "sourceColumn": "docket_num_2",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "docket_num_2",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "agency_code",
+            "dataType": "string",
+            "sourceColumn": "agency_code",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "agency_code",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "cit_ref_id",
+            "dataType": "string",
+            "sourceColumn": "cit_ref_id",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "cit_ref_id",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "court_date",
+            "dataType": "string",
+            "sourceColumn": "court_date",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "court_date",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "court_time",
+            "dataType": "string",
+            "sourceColumn": "court_time",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "court_time",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "judge_id",
+            "dataType": "string",
+            "sourceColumn": "judge_id",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "judge_id",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "room_id",
+            "dataType": "string",
+            "sourceColumn": "room_id",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "room_id",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "hearing_type",
+            "dataType": "string",
+            "sourceColumn": "hearing_type",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "hearing_type",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "case_status",
+            "dataType": "string",
+            "sourceColumn": "case_status",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "case_status",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "attorney_id",
+            "dataType": "string",
+            "sourceColumn": "attorney_id",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "attorney_id",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "continuance_count",
+            "dataType": "string",
+            "sourceColumn": "continuance_count",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "continuance_count",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "last_action_date",
+            "dataType": "string",
+            "sourceColumn": "last_action_date",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "last_action_date",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "system_ts",
+            "dataType": "string",
+            "sourceColumn": "system_ts",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "system_ts",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "sf_batch_id",
+            "dataType": "int64",
+            "sourceColumn": "sf_batch_id",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "sf_batch_id",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "sf_src_file_name",
+            "dataType": "string",
+            "sourceColumn": "sf_src_file_name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "sf_src_file_name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "mdfr00",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "lnd"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "mdfr_docket",
+        "sourceLineageTag": "[lnd].[mdfr_docket]",
+        "columns": [
+          {
+            "name": "record_type",
+            "dataType": "string",
+            "sourceColumn": "record_type",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "record_type",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "agency_code",
+            "dataType": "string",
+            "sourceColumn": "agency_code",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "agency_code",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "sf_batch_id",
+            "dataType": "int64",
+            "sourceColumn": "sf_batch_id",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "sf_batch_id",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "sf_src_file_name",
+            "dataType": "string",
+            "sourceColumn": "sf_src_file_name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "sf_src_file_name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "docket_num",
+            "dataType": "string",
+            "sourceColumn": "docket_num",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "docket_num",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "cit_ref_id",
+            "dataType": "string",
+            "sourceColumn": "cit_ref_id",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "cit_ref_id",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "court_date",
+            "dataType": "string",
+            "sourceColumn": "court_date",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "court_date",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "court_time",
+            "dataType": "string",
+            "sourceColumn": "court_time",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "court_time",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "judge_id",
+            "dataType": "string",
+            "sourceColumn": "judge_id",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "judge_id",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "room_id",
+            "dataType": "string",
+            "sourceColumn": "room_id",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "room_id",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "hearing_type",
+            "dataType": "string",
+            "sourceColumn": "hearing_type",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "hearing_type",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "case_status",
+            "dataType": "string",
+            "sourceColumn": "case_status",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "case_status",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "attorney_id",
+            "dataType": "string",
+            "sourceColumn": "attorney_id",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "attorney_id",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "continuance_count",
+            "dataType": "string",
+            "sourceColumn": "continuance_count",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "continuance_count",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "last_action_date",
+            "dataType": "string",
+            "sourceColumn": "last_action_date",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "last_action_date",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "system_ts",
+            "dataType": "string",
+            "sourceColumn": "system_ts",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "system_ts",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "mdfr_docket",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "lnd"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "test_simple_write",
+        "sourceLineageTag": "[lnd].[test_simple_write]",
+        "columns": [
+          {
+            "name": "test_message",
+            "dataType": "string",
+            "sourceColumn": "test_message",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "test_message",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "test_simple_write",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "lnd"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "vmax2",
+        "sourceLineageTag": "[lnd].[vmax2]",
+        "columns": [
+          {
+            "name": "slong",
+            "dataType": "string",
+            "sourceColumn": "slong",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "slong",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "sf_batch_id",
+            "dataType": "int64",
+            "sourceColumn": "sf_batch_id",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "sf_batch_id",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "sf_src_file_name",
+            "dataType": "string",
+            "sourceColumn": "sf_src_file_name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "sf_src_file_name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "vmax2",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "lnd"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "vmax3",
+        "sourceLineageTag": "[lnd].[vmax3]",
+        "columns": [
+          {
+            "name": "slong",
+            "dataType": "string",
+            "sourceColumn": "slong",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "slong",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "sf_src_file_name",
+            "dataType": "string",
+            "sourceColumn": "sf_src_file_name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "sf_src_file_name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "vmax3",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "lnd"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "vmax4",
+        "sourceLineageTag": "[lnd].[vmax4]",
+        "columns": [
+          {
+            "name": "slong",
+            "dataType": "string",
+            "sourceColumn": "slong",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "slong",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "sf_src_file_name",
+            "dataType": "string",
+            "sourceColumn": "sf_src_file_name",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "sf_src_file_name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "vmax4",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "lnd"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "vmax",
+        "sourceLineageTag": "[lnd].[vmax]",
+        "columns": [
+          {
+            "name": "slong",
+            "dataType": "string",
+            "sourceColumn": "slong",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "slong",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "vmax",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "lnd"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      }
+    ],
+    "expressions": [
+      {
+        "name": "DatabaseQuery",
+        "kind": "m",
+        "expression": "let\n    database = {{TDS_Endpoint}}\nin\n    database\n"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "SourceLineageTagType",
+        "value": "DatabaseFullyQualifiedName"
+      }
+    ]
+  }
+}

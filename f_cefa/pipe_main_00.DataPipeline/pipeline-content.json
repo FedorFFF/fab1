@@ -1,0 +1,821 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            },
+            "additionalColumns": [
+              {
+                "name": "sf_src_file_name",
+                "value": "$$FILEPATH"
+              }
+            ],
+            "storeSettings": {
+              "type": "LakehouseReadSettings",
+              "recursive": false,
+              "enablePartitionDiscovery": false
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "in_psv",
+                  "fileName": "MDFR-Input-Docket-2026-08-01.psv"
+                },
+                "columnDelimiter": "|",
+                "quoteChar": "\"",
+                "escapeChar": "\\",
+                "firstRowAsHeader": true
+              },
+              "schema": [],
+              "connectionSettings": {
+                "name": "CEFA_Lakehouse",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "872e97b5-207d-421c-8846-4d8b23c80f2d",
+                    "workspaceId": "cf4d96eb-99fe-401a-942b-9078f654f7c2",
+                    "rootFolder": "Files"
+                  },
+                  "externalReferences": {
+                    "connection": "83a2d25e-2144-4ee3-be55-e75b84aa5623"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "datasetSettings": {
+              "type": "DataWarehouseTable",
+              "typeProperties": {
+                "schema": "lnd",
+                "table": "mdfr_docket"
+              },
+              "schema": [],
+              "connectionSettings": {
+                "name": "CEFA_Warehouse",
+                "properties": {
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "artifactId": "fc4ffbd6-e649-4fb6-bcdd-b67682b89efb",
+                    "endpoint": "txevxqqrsppuve3evkv42zse3a-5ole3t76tenebfblsb4pmvhxyi.datawarehouse.fabric.microsoft.com",
+                    "workspaceId": "cf4d96eb-99fe-401a-942b-9078f654f7c2"
+                  },
+                  "externalReferences": {
+                    "connection": "44da0cc1-5c4a-464b-abd7-8e6463501a8b"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "name": "Record_Type",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "record_type",
+                  "physicalType": "varchar",
+                  "length": "50"
+                }
+              },
+              {
+                "source": {
+                  "name": "Docket_Num",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "docket_num",
+                  "physicalType": "varchar",
+                  "length": "100"
+                }
+              },
+              {
+                "source": {
+                  "name": "Agency_Code",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "agency_code",
+                  "physicalType": "varchar",
+                  "length": "50"
+                }
+              },
+              {
+                "source": {
+                  "name": "Cit_Ref_ID",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "cit_ref_id",
+                  "physicalType": "varchar",
+                  "length": "100"
+                }
+              },
+              {
+                "source": {
+                  "name": "Court_Date",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "court_date",
+                  "physicalType": "varchar",
+                  "length": "50"
+                }
+              },
+              {
+                "source": {
+                  "name": "Court_Time",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "court_time",
+                  "physicalType": "varchar",
+                  "length": "50"
+                }
+              },
+              {
+                "source": {
+                  "name": "Judge_ID",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "judge_id",
+                  "physicalType": "varchar",
+                  "length": "100"
+                }
+              },
+              {
+                "source": {
+                  "name": "Room_ID",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "room_id",
+                  "physicalType": "varchar",
+                  "length": "100"
+                }
+              },
+              {
+                "source": {
+                  "name": "Hearing_Type",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "hearing_type",
+                  "physicalType": "varchar",
+                  "length": "100"
+                }
+              },
+              {
+                "source": {
+                  "name": "Case_Status",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "case_status",
+                  "physicalType": "varchar",
+                  "length": "100"
+                }
+              },
+              {
+                "source": {
+                  "name": "Attorney_ID",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "attorney_id",
+                  "physicalType": "varchar",
+                  "length": "100"
+                }
+              },
+              {
+                "source": {
+                  "name": "Continuance_Count",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "continuance_count",
+                  "physicalType": "varchar",
+                  "length": "50"
+                }
+              },
+              {
+                "source": {
+                  "name": "Last_Action_Date",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "last_action_date",
+                  "physicalType": "varchar",
+                  "length": "50"
+                }
+              },
+              {
+                "source": {
+                  "name": "System_TS",
+                  "type": "String",
+                  "physicalType": "String"
+                },
+                "sink": {
+                  "name": "system_ts",
+                  "physicalType": "varchar",
+                  "length": "100"
+                }
+              },
+              {
+                "source": {
+                  "name": "sf_src_file_name",
+                  "type": "String"
+                },
+                "sink": {
+                  "name": "sf_src_file_name",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Copy mdfr_docket",
+        "description": "PSV copy ",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [
+          {
+            "activity": "Set var_batch_id",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Script",
+        "typeProperties": {
+          "scripts": [
+            {
+              "text": {
+                "value": "DECLARE @batch_id_out BIGINT = -1, @user varchar(50) = SYSTEM_USER;\nEXEC etl.usp_batch_start \n    @process_name    = 'test 02 DF'\n    ,@stage_name     = 'LND'\n    ,@sf_user_id     = @user\n    ,@pipeline_run_id = '@{pipeline().RunId}' --?\n    --'@{pipeline().RunId}'\n    ,@new_batch_id   = @batch_id_out OUTPUT;\n--",
+                "type": "Expression"
+              },
+              "type": "Query",
+              "parameters": [
+                {
+                  "name": "p_run_id",
+                  "type": "String",
+                  "value": {
+                    "value": "@pipeline().RunId",
+                    "type": "Expression"
+                  },
+                  "direction": "Input"
+                }
+              ]
+            }
+          ],
+          "scriptBlockExecutionTimeout": "02:00:00"
+        },
+        "connectionSettings": {
+          "name": "CEFA_Warehouse",
+          "properties": {
+            "type": "DataWarehouse",
+            "typeProperties": {
+              "artifactId": "fc4ffbd6-e649-4fb6-bcdd-b67682b89efb",
+              "endpoint": "txevxqqrsppuve3evkv42zse3a-5ole3t76tenebfblsb4pmvhxyi.datawarehouse.fabric.microsoft.com",
+              "workspaceId": "cf4d96eb-99fe-401a-942b-9078f654f7c2"
+            },
+            "externalReferences": {
+              "connection": "44da0cc1-5c4a-464b-abd7-8e6463501a8b"
+            },
+            "annotations": []
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "etl-usp_batch_start",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": []
+      },
+      {
+        "type": "SetVariable",
+        "typeProperties": {
+          "variableName": "var_batch_id",
+          "value": {
+            "value": "@string(activity('etl-usp_batch_start').output.resultSets[0].rows[0].new_batch_id)",
+            "type": "Expression"
+          }
+        },
+        "policy": {
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Set var_batch_id",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [
+          {
+            "activity": "etl-usp_batch_start",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Script",
+        "typeProperties": {
+          "scripts": [
+            {
+              "text": {
+                "value": "EXEC etl.usp_batch_end \n    @sf_batch_id = @{variables('var_batch_id')}, \n    @is_success  = 1;",
+                "type": "Expression"
+              },
+              "type": "Query",
+              "parameters": [
+                {
+                  "name": "p_run_id",
+                  "type": "String",
+                  "value": {
+                    "value": "@pipeline().RunId",
+                    "type": "Expression"
+                  },
+                  "direction": "Input"
+                }
+              ]
+            }
+          ],
+          "scriptBlockExecutionTimeout": "02:00:00"
+        },
+        "connectionSettings": {
+          "name": "CEFA_Warehouse",
+          "properties": {
+            "type": "DataWarehouse",
+            "typeProperties": {
+              "artifactId": "fc4ffbd6-e649-4fb6-bcdd-b67682b89efb",
+              "endpoint": "txevxqqrsppuve3evkv42zse3a-5ole3t76tenebfblsb4pmvhxyi.datawarehouse.fabric.microsoft.com",
+              "workspaceId": "cf4d96eb-99fe-401a-942b-9078f654f7c2"
+            },
+            "externalReferences": {
+              "connection": "44da0cc1-5c4a-464b-abd7-8e6463501a8b"
+            },
+            "annotations": []
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "etl-usp_batch_end",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [
+          {
+            "activity": "Upd_sf_batch_id",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "Script",
+        "typeProperties": {
+          "scripts": [
+            {
+              "text": {
+                "value": "UPDATE lnd.mdfr_docket \nSET sf_batch_id = @{variables('var_batch_id')}",
+                "type": "Expression"
+              },
+              "type": "Query",
+              "parameters": [
+                {
+                  "name": "p_run_id",
+                  "type": "String",
+                  "value": {
+                    "value": "@pipeline().RunId",
+                    "type": "Expression"
+                  },
+                  "direction": "Input"
+                }
+              ]
+            }
+          ],
+          "scriptBlockExecutionTimeout": "02:00:00"
+        },
+        "connectionSettings": {
+          "name": "CEFA_Warehouse",
+          "properties": {
+            "type": "DataWarehouse",
+            "typeProperties": {
+              "artifactId": "fc4ffbd6-e649-4fb6-bcdd-b67682b89efb",
+              "endpoint": "txevxqqrsppuve3evkv42zse3a-5ole3t76tenebfblsb4pmvhxyi.datawarehouse.fabric.microsoft.com",
+              "workspaceId": "cf4d96eb-99fe-401a-942b-9078f654f7c2"
+            },
+            "externalReferences": {
+              "connection": "44da0cc1-5c4a-464b-abd7-8e6463501a8b"
+            },
+            "annotations": []
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Upd_sf_batch_id",
+        "description": "В появившемся меню выбери New annotation (или Add note).",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": [
+          {
+            "activity": "Copy mdfr_docket",
+            "dependencyConditions": [
+              "Succeeded"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "GetMetadata",
+        "typeProperties": {
+          "datasetSettings": {
+            "type": "DelimitedText",
+            "typeProperties": {
+              "location": {
+                "type": "LakehouseLocation",
+                "folderPath": "in_psv"
+              },
+              "columnDelimiter": ",",
+              "quoteChar": "\"",
+              "escapeChar": "\\",
+              "firstRowAsHeader": true
+            },
+            "schema": [],
+            "connectionSettings": {
+              "name": "CEFA_Lakehouse",
+              "properties": {
+                "type": "Lakehouse",
+                "typeProperties": {
+                  "artifactId": "872e97b5-207d-421c-8846-4d8b23c80f2d",
+                  "workspaceId": "cf4d96eb-99fe-401a-942b-9078f654f7c2",
+                  "rootFolder": "Files"
+                },
+                "externalReferences": {
+                  "connection": "83a2d25e-2144-4ee3-be55-e75b84aa5623"
+                },
+                "annotations": []
+              }
+            },
+            "annotations": []
+          },
+          "fieldList": [
+            "childItems"
+          ],
+          "storeSettings": {
+            "type": "LakehouseReadSettings",
+            "recursive": true,
+            "enablePartitionDiscovery": false
+          },
+          "formatSettings": {
+            "type": "DelimitedTextReadSettings"
+          }
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Get Metadata1",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": []
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            },
+            "additionalColumns": [
+              {
+                "name": "sf_src_file_name",
+                "value": "$$FILEPATH"
+              }
+            ],
+            "storeSettings": {
+              "type": "LakehouseReadSettings",
+              "recursive": false,
+              "enablePartitionDiscovery": false
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "in_psv",
+                  "fileName": "@variables('var_src_csv_file')"
+                },
+                "columnDelimiter": "~",
+                "quoteChar": "",
+                "escapeChar": "\\",
+                "firstRowAsHeader": false
+              },
+              "schema": [],
+              "connectionSettings": {
+                "name": "CEFA_Lakehouse",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "23c80f2d-4d8b-8846-421c-207d872e97b5",
+                    "workspaceId": "00000000-0000-0000-0000-000000000000",
+                    "rootFolder": "Files"
+                  },
+                  "externalReferences": {
+                    "connection": "83a2d25e-2144-4ee3-be55-e75b84aa5623"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "datasetSettings": {
+              "type": "DataWarehouseTable",
+              "typeProperties": {
+                "schema": "lnd",
+                "table": {
+                  "value": "@variables('var_lnd_table')",
+                  "type": "Expression"
+                }
+              },
+              "schema": [],
+              "connectionSettings": {
+                "name": "CEFA_Warehouse",
+                "properties": {
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "artifactId": "fc4ffbd6-e649-4fb6-bcdd-b67682b89efb",
+                    "endpoint": "txevxqqrsppuve3evkv42zse3a-5ole3t76tenebfblsb4pmvhxyi.datawarehouse.fabric.microsoft.com",
+                    "workspaceId": "cf4d96eb-99fe-401a-942b-9078f654f7c2"
+                  },
+                  "externalReferences": {
+                    "connection": "44da0cc1-5c4a-464b-abd7-8e6463501a8b"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "type": "String",
+                  "ordinal": 1
+                },
+                "sink": {
+                  "name": "slong",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                }
+              },
+              {
+                "source": {
+                  "name": "sf_src_file_name",
+                  "type": "String"
+                },
+                "sink": {
+                  "name": "sf_src_file_name",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Copy test",
+        "description": "PSV copy ",
+        "dependsOn": []
+      },
+      {
+        "type": "Copy",
+        "typeProperties": {
+          "source": {
+            "type": "DelimitedTextSource",
+            "formatSettings": {
+              "type": "DelimitedTextReadSettings"
+            },
+            "additionalColumns": [
+              {
+                "name": "sf_src_file_name",
+                "value": "$$FILEPATH"
+              }
+            ],
+            "storeSettings": {
+              "type": "LakehouseReadSettings",
+              "recursive": false,
+              "enablePartitionDiscovery": false
+            },
+            "datasetSettings": {
+              "type": "DelimitedText",
+              "typeProperties": {
+                "location": {
+                  "type": "LakehouseLocation",
+                  "folderPath": "in_psv",
+                  "fileName": "@variables('var_src_csv_file')"
+                },
+                "columnDelimiter": "~",
+                "quoteChar": "",
+                "escapeChar": "\\",
+                "firstRowAsHeader": false
+              },
+              "schema": [],
+              "connectionSettings": {
+                "name": "CEFA_Lakehouse",
+                "properties": {
+                  "type": "Lakehouse",
+                  "typeProperties": {
+                    "artifactId": "872e97b5-207d-421c-8846-4d8b23c80f2d",
+                    "workspaceId": "cf4d96eb-99fe-401a-942b-9078f654f7c2",
+                    "rootFolder": "Files"
+                  },
+                  "externalReferences": {
+                    "connection": "83a2d25e-2144-4ee3-be55-e75b84aa5623"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "sink": {
+            "type": "DataWarehouseSink",
+            "allowCopyCommand": true,
+            "copyCommandSettings": {},
+            "datasetSettings": {
+              "type": "DataWarehouseTable",
+              "typeProperties": {
+                "schema": "lnd",
+                "table": {
+                  "value": "@variables('var_lnd_table')",
+                  "type": "Expression"
+                }
+              },
+              "schema": [],
+              "connectionSettings": {
+                "name": "CEFA_Warehouse",
+                "properties": {
+                  "type": "DataWarehouse",
+                  "typeProperties": {
+                    "artifactId": "fc4ffbd6-e649-4fb6-bcdd-b67682b89efb",
+                    "endpoint": "txevxqqrsppuve3evkv42zse3a-5ole3t76tenebfblsb4pmvhxyi.datawarehouse.fabric.microsoft.com",
+                    "workspaceId": "cf4d96eb-99fe-401a-942b-9078f654f7c2"
+                  },
+                  "externalReferences": {
+                    "connection": "44da0cc1-5c4a-464b-abd7-8e6463501a8b"
+                  },
+                  "annotations": []
+                }
+              },
+              "annotations": []
+            }
+          },
+          "translator": {
+            "type": "TabularTranslator",
+            "mappings": [
+              {
+                "source": {
+                  "type": "String",
+                  "ordinal": 1
+                },
+                "sink": {
+                  "name": "slong",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                }
+              },
+              {
+                "source": {
+                  "name": "sf_src_file_name",
+                  "type": "String"
+                },
+                "sink": {
+                  "name": "sf_src_file_name",
+                  "physicalType": "varchar",
+                  "length": "8000"
+                }
+              }
+            ],
+            "typeConversion": true,
+            "typeConversionSettings": {
+              "allowDataTruncation": true,
+              "treatBooleanAsNumber": false
+            }
+          },
+          "enableStaging": true
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "dyn test_copy1",
+        "description": "PSV copy ",
+        "state": "Inactive",
+        "onInactiveMarkAs": "Succeeded",
+        "dependsOn": []
+      }
+    ],
+    "variables": {
+      "var_batch_id": {
+        "type": "String"
+      },
+      "var_lnd_table": {
+        "type": "String",
+        "defaultValue": "vmax4"
+      },
+      "var_src_csv_file": {
+        "type": "String",
+        "defaultValue": "MDFR-Input-Docket-2026-08-01.psv"
+      }
+    }
+  }
+}

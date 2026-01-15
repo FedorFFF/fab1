@@ -1,0 +1,28 @@
+[
+  {
+    "name": "lnd",
+    "path": "/Tables",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/lnd",
+        "itemId": "82b89efb-b676-bcdd-4fb6-e649fc4ffbd6",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "Warehouse"
+      }
+    }
+  },
+  {
+    "name": "etl",
+    "path": "/Tables",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/etl",
+        "itemId": "82b89efb-b676-bcdd-4fb6-e649fc4ffbd6",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "Warehouse"
+      }
+    }
+  }
+]

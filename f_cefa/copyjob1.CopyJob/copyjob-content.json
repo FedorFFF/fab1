@@ -1,0 +1,72 @@
+{
+  "properties": {
+    "jobMode": "Batch",
+    "source": {
+      "type": "DelimitedText",
+      "connectionSettings": {
+        "type": "Lakehouse",
+        "typeProperties": {
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "artifactId": "23c80f2d-4d8b-8846-421c-207d872e97b5",
+          "rootFolder": "Files"
+        }
+      }
+    },
+    "destination": {
+      "type": "DataWarehouseTable",
+      "connectionSettings": {
+        "type": "DataWarehouse",
+        "typeProperties": {
+          "workspaceId": "cf4d96eb-99fe-401a-942b-9078f654f7c2",
+          "artifactId": "fc4ffbd6-e649-4fb6-bcdd-b67682b89efb",
+          "endPoint": "txevxqqrsppuve3evkv42zse3a-5ole3t76tenebfblsb4pmvhxyi.datawarehouse.fabric.microsoft.com"
+        }
+      }
+    },
+    "policy": {
+      "timeout": "0.12:00:00"
+    }
+  },
+  "activities": [
+    {
+      "id": "b40b66eee984a8",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "location": {
+              "type": "LakehouseLocation"
+            },
+            "columnDelimiter": "|",
+            "escapeChar": "\\",
+            "firstRowAsHeader": true,
+            "quoteChar": "\""
+          },
+          "storeSettings": {
+            "recursive": true,
+            "wildcardFolderPath": "https://onelake.dfs.fabric.microsoft.com/cf4d96eb-99fe-401a-942b-9078f654f7c2/872e97b5-207d-421c-8846-4d8b23c80f2d/Files/in_psv",
+            "wildcardFileName": "MDFR-Input-Docket*.psv",
+            "enablePartitionDiscovery": false
+          },
+          "formatSettings": {}
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "datasetSettings": {
+            "schema": "https://onelake",
+            "table": "vmax2"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    }
+  ]
+}

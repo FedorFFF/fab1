@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Lakehouse",
+    "displayName": "CEFA_Lakehouse"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "23c80f2d-4d8b-8846-421c-207d872e97b5"
+  }
+}
